@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slide Show</title>
+<style>
+  *{
+    font-family: Verdana, Verdana, Geneva, Tahoma, sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  body{
+    background-color: rgb(255, 255, 255);
+  }
+  .slideshow-container{
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slide{
+    display: none;
+    width:100%;
+    height: 500%;
+  }
+  .fade{
+    animation: fade 10s infinite;
+  }
+  @keyframes fade{
+    0%{opacity: 0;}
+    20%{opacity: 1;}
+    60%{opacity: 1;}
+    100%{opacity: 0;}
+
+  }
+  
+</style>
+</head>
+<body>
+<div class="slide-show"></div>
+ 
+ <div class="slide fade">
+  <img src="./image/japan 1.jpg" alt="japan 1">
+</div> 
+<div class="slide fade">
+  <img src="./image/japan 2.jpg" alt="japan 2">
+</div> 
+<div class="slide fade">
+  <img src="./image/japan 3.jpg" alt="japan 3">
+</div> 
+<div class="slide fade">
+  <img src="./image/jaoan 4.jpg" alt="jaoan 4">
+</div> 
+<script>
+  var slideIndex = 1;    
+  SlideShow()
+ function SlideShow(){
+  var i 
+  var x = document.getElementsByClassName("slide")
+  //console.log(x.length)
+  if(slideIndex>x.length){
+    slideIndex = 1
+  }
+
+  for(i=0; i<x.length; i++){
+  x[i].style.display="none";
+  }
+  x[slideIndex-1].style.display = "block"
+  slideIndex++;
+  setTimeout(SlideShow,2000);
+ }
+</script>
+
+</body>
+</html>
